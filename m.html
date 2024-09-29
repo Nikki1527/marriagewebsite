@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Marriage Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT37x1ruaYazo8bBq7V6X4_x-OeOB8iAkk-xQ&s'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff416c;
+            color: rgb(66, 170, 202);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff4b2b;
+        }
+
+        #success-message {
+            display: none;
+            margin-top: 20px;
+            color: rgb(119, 27, 206);
+            font-weight: bold;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <button type="button" id="loginButton" onclick="handleLogin()">Login</button>
+    </form>
+    
+    <p id="success-message">You have successfully logged in! A verification email has been sent to your address.</p>
+
+    <script>
+        function handleLogin() {
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (name && email) {
+                document.getElementById('loginButton').disabled = true;
+                document.getElementById('success-message').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('loginButton').disabled = false;
+                    document.getElementById('loginButton').textContent = 'Login';
+                }, 3000);
+            }
+        }
+    </script>
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

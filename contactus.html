@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Popup</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1615966650071-855b15f29ad1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNvdXBsZSUyMGxvdmV8ZW58MHx8MHx8fDA%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-content {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: #ff6600;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #e65c00;
+            transform: scale(1.05);
+        }
+
+       
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            animation: popup 0.3s ease-out;
+        }
+
+        .popup-content h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .popup-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .popup-content ul li {
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            color: red;
+            transition: color 0.2s ease;
+        }
+
+        .close-btn:hover {
+            color: darkred;
+        }
+
+       
+        @keyframes popup {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+      
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-content">
+        <h1>Welcome to Shadhi</h1>
+        <button id="contact-btn">24x7 Help</button>
+    </div>
+
+  
+    <div id="contact-popup" class="popup hidden">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>24x7 Help</h2>
+            <p><strong>INDIA:</strong> 0-8144-99-88-77</p>
+            <p><strong>UAE:</strong> +97107852679</p>
+            <ul>
+                <li>Live Help</li>
+                <li>Contact Us</li>
+                <li>Feedback</li>
+                <li>Business Queries</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+       
+        document.addEventListener("DOMContentLoaded", function () {
+            var contactBtn = document.getElementById('contact-btn');
+            var contactPopup = document.getElementById('contact-popup');
+            var closeBtn = document.querySelector('.close-btn');
+
+         
+            contactBtn.addEventListener('click', function () {
+                contactPopup.classList.remove('hidden');
+                contactPopup.classList.add('visible');
+            });
+
+            
+            closeBtn.addEventListener('click', function () {
+                contactPopup.classList.remove('visible');
+                contactPopup.classList.add('hidden');
+            });
+
+         
+            window.addEventListener('click', function (e) {
+                if (e.target == contactPopup) {
+                    contactPopup.classList.remove('visible');
+                    contactPopup.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
